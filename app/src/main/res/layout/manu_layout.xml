@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="false"
+        android:gravity="center"
+        android:text="手机摄像头光圈值\nAperture of mobile phone camera"
+        android:layout_margin="10dp"
+        android:textSize="25sp"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        >
+        <ImageButton
+            android:id="@+id/aperture_L"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="3"
+            android:src="@drawable/ic_par_arrow_left"/>
+        <TextView
+            android:id="@+id/phone_aperture_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:textSize="30sp"
+            android:text="f/2.2"/>
+        <ImageButton
+            android:id="@+id/aperture_R"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="3"
+            android:src="@drawable/ic_par_arrow_right"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:text="这是你手机摄像头的光圈，一般来说手机摄像头光圈是固定的。这个光圈值在你手机摄像头附近有标识，若无则从网上查阅你手机相关资料获取\nThis is the aperture of your phone's camera, which is usually fixed. This aperture is marked near your phone's camera. If not, look up information about your phone online"/>
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:text="@string/ok"
+        android:textSize="20sp"/>
+
+</LinearLayout>
