@@ -691,7 +691,7 @@ public class Camera2RawFragment extends Fragment implements View.OnClickListener
                                         runOnUiThread.UpdateText(R.id.aperture_text,Double.toString(APERTURE));
                                         mPreviewRequestBuilder.set(CaptureRequest.SENSOR_EXPOSURE_TIME,SPEED);
                                     }
-                                    if(SPEED >= 100000L && SPEED <= 10000000L) {          //大于等于1/10000s小于等于1/100s
+                                    if(SPEED <= 10000000L) {          //大于等于1/10000s小于等于1/100s  SPEED >= 100000L
                                         SPEED = SPEED + 50000L;     // 1/20000步进
                                         SHUTTER = (double)SPEED/1000000000L;
                                         APERTURE = PhoneAperture;
@@ -712,7 +712,7 @@ public class Camera2RawFragment extends Fragment implements View.OnClickListener
                                         SPEED = SPEED - 1000000000L;      //1秒步进
                                     if(SPEED > 100000000L && SPEED < 1000000000L)     //  大于1/10s小于1s
                                         SPEED = SPEED - 10000000L;    //  1/100s步进*/
-                                    if (SPEED == 100000000L && SHUTTER <= 1.0 && SHUTTER > 0.1){
+                                    if (SPEED >= 100000000L && SHUTTER <= 1.0 && SHUTTER > 0.1){
                                         SHUTTER -= 0.1;
                                         BigDecimal bg = BigDecimal.valueOf(Math.pow(2, ((log_2_10 - log_2(1 / SHUTTER)) / 2 + log_2_PA)));
                                         APERTURE = bg.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();   //取1位小数
@@ -720,7 +720,7 @@ public class Camera2RawFragment extends Fragment implements View.OnClickListener
                                         runOnUiThread.UpdateText(R.id.aperture_text,Double.toString(APERTURE));
                                         return true;
                                     }
-                                    if (SPEED == 100000000L && SHUTTER > 1.0){
+                                    if (SPEED >= 100000000L && SHUTTER > 1.0){
                                         SHUTTER -= 1.0;
                                         BigDecimal bg = BigDecimal.valueOf(Math.pow(2, ((log_2_10 - log_2(1 / SHUTTER)) / 2 + log_2_PA)));
                                         APERTURE = bg.setScale(1,BigDecimal.ROUND_HALF_UP).doubleValue();   //取1位小数
@@ -738,7 +738,7 @@ public class Camera2RawFragment extends Fragment implements View.OnClickListener
                                         runOnUiThread.UpdateText(R.id.aperture_text,Double.toString(APERTURE));
                                         mPreviewRequestBuilder.set(CaptureRequest.SENSOR_EXPOSURE_TIME,SPEED);
                                     }
-                                    if(SPEED >= 100000L && SPEED <= 10000000L) {          //大于等于1/10000s小于等于1/100s
+                                    if(SPEED > 100000L && SPEED <= 10000000L) {          //大于1/10000s小于等于1/100s
                                         SPEED = SPEED - 50000L;     // 1/20000步进
                                         SHUTTER = (double)SPEED/1000000000L;
                                         APERTURE = PhoneAperture;
